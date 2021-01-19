@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http=equiv="X-UA-Compatible" content+"IE=edge,chrome=1"/>
+
+	<style>
+	body
+	{
+		background-image: url('gal.jpg');
+		font-size: 26px;
+		font-weight: bold;
+	}
+	#container
+	{
+		width: 400px;
+		height: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 100px;
+		background-color: #18f5ea;
+		margin-top: 300px;
+	}
+	.home
+	{
+		width: 64px;
+		height: 64px;
+		text-decoration: none;
+		background: url("home.png") no-repeat 0px 0px;
+		position: fixed;
+		right: 50px;
+		bottom: 50px;
+	}
+	.math
+	{
+		
+		width: 100px;
+		margin-left: 100px;
+		
+	}
+	</style>
+	
+</head>
+
+<body>
+
+<a href="index.html" class="home"></a>
+
+	<div id="container">
+	
+		<form name="damage">
+			<br /><label for="damage">You sword damage:</label>
+			<input id="damage"><br /><br />
+			<label for="strenght">You strenght:</label>
+			<input id="strenght"><br /><br />
+			<label for="sharp">Choose a sharpness:</label>
+
+			<select name="sharpness" id="sharp">
+				<option value="0">NONE</option>
+				<option value="5">I</option>
+				<option value="10">II</option>
+				<option value="15">III</option>
+				<option value="20">IV</option>
+				<option value="25">V</option>
+				<option value="30">VI</option>
+		
+			</select>
+		
+		</form>
+		<p>No crit damage:</p>
+		<p id="eq"></p>
+		
+	</div>
+<script>
+	
+	function math()
+	{
+	
+	var dmg = document.damage.damage.value
+	var str = document.damage.strenght.value
+	var sharp = document.damage.sharp.value
+	var eq1 = (parseInt(dmg, 10) + 5 + (parseInt(str, 10) / 5)) * (1 + (parseInt(str, 10) / 100))
+	var eq2 = eq1 / 100
+	var eq = eq1 + eq2 * parseInt(sharp, 10)
+	document.getElementById("eq").innerHTML = eq;
+	
+	}
+	window.setInterval("math()", 100);
+</script>
+</body>
+</html>
